@@ -56,6 +56,9 @@ int slideNum;
     menu.setMargin(nextBtn, new Insets(20, 20, 20, 20));
     BorderPane borderLayout = new BorderPane();
 
+    //LevelMenu levelMenu = new LevelMenu();
+
+  //  borderLayout.setTop(levelMenu.showMenu());
     borderLayout.setCenter(presentation);
     borderLayout.setBottom(menu);
 
