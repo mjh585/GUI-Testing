@@ -13,8 +13,10 @@ import javafx.scene.layout.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
+
 public class LevelMenu extends Application {
   int levelNum, qNum, i, j;
+  Label presentation;
   public LevelMenu() {}
 
   public static void main(String[] args) {
@@ -33,7 +35,7 @@ public class LevelMenu extends Application {
     ArrayList<Menu> levelItems = new ArrayList<Menu>(); //Levels array
     ArrayList<ArrayList<MenuItem>> levelQuestions = new ArrayList<ArrayList<MenuItem>>(); //Array of the questions array for each level
 
-      Label presentation = new Label("Level: " + Integer.toString(levelNum) + " Question: " + Integer.toString(qNum));
+    this.presentation = new Label("Level: " + Integer.toString(levelNum) + " Question: " + Integer.toString(qNum));
 
     //TODO Sort this out fot getting number of levels and questions
     for(i=0; i<5; i++) {
@@ -41,15 +43,37 @@ public class LevelMenu extends Application {
       ArrayList<MenuItem> questions = new ArrayList<MenuItem>();  //Array of questions in current level.
       for(j=0; j<5; j++) {
         questions.add(new MenuItem("Question: " + (j+1)));
+        questions.get(j).setId(i+"/"+j);
         levelItems.get(i).getItems().add(questions.get(j));
         questions.get(j).setOnAction(new EventHandler<ActionEvent>() {
 
           @Override
           public void handle(ActionEvent event) {
             //NONE OF THIS WORKS LOL
-            setSlide();
-            presentation.setText("Level: " + Integer.toString(levelNum) + " Question: " + Integer.toString(qNum));
-            System.out.println("Level: " + Integer.toString(levelNum) + " Question: " + Integer.toString(qNum));
+            //setSlide();
+            Object o = event.getSource();
+
+            for (int k=0; k<questions.size(); k++) {
+              if(o == questions.get(k)) {
+
+                String menuID = questions.get(k).getId();
+                String idArray[] = menuID.split("/");
+                setSlide(Integer.parseInt(idArray[0]), Integer.parseInt(idArray[1]));
+              }
+            }
+
+            // //System.out.println(event.toString());
+            // for (int k=0; k < levelItems.size(); k++) {
+            //   //System.out.println(levelItems.get(k));
+            // //  if(o == levelItems.get(k).getItems().questions.size()) {
+            //     for (int l=0; l < questions.size(); l++) {
+            //       if(o == questions.get(l)) {
+            //         System.out.println(questions.get(l).getId());
+            //         //setSlide(k, l);
+            //       }
+            //     }
+            //   //}
+            // }
           }
         });
       }
@@ -73,10 +97,11 @@ public class LevelMenu extends Application {
     primaryStage.show();
   }
 
-  public void setSlide() {
-    this.levelNum = this.i;
-    this.qNum = this.j;
-
+  public void setSlide(int newLevel, int newQuestion) {
+    this.levelNum = newLevel + 1;
+    this.qNum = (newQuestion + 1);
+    this.presentation.setText("Level: " + Integer.toString(levelNum) + " Question: " + Integer.toString(qNum));
+    System.out.println("Level: " + Integer.toString(levelNum) + " Question: " + Integer.toString(qNum));
   }
 
 
