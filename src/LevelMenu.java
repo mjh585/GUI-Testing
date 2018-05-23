@@ -57,8 +57,8 @@ public class LevelMenu extends Application {
               if(o == questions.get(k)) {
 
                 String menuID = questions.get(k).getId();
-                String idArray[] = menuID.split("/");
-                setSlide(Integer.parseInt(idArray[0]), Integer.parseInt(idArray[1]));
+                String menuIDArray[] = menuID.split("/");
+                setSlide(Integer.parseInt(menuIDArray[0]), Integer.parseInt(menuIDArray[1]));
               }
             }
 
