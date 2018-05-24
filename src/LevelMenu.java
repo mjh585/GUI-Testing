@@ -25,6 +25,7 @@ public class LevelMenu extends Application {
   File styleSheet = new File("../resources/style.css");
   ProgressBar pb = new ProgressBar(levelNum/maxLevels);
 
+
   public static void main(String[] args) {
     // LevelMenu();
     launch(args);
@@ -42,7 +43,6 @@ public class LevelMenu extends Application {
     ArrayList<ArrayList<MenuItem>> levelQuestions = new ArrayList<ArrayList<MenuItem>>(); //Array of the questions array for each level
 
     this.presentation = new Label("Level: " + Integer.toString(levelNum) + " Question: " + Integer.toString(qNum));
-
     //TODO Sort this out fot getting number of levels and questions
     for(i=0; i<5; i++) {
       levelItems.add(new Menu("Level " + (i+1)));
@@ -95,6 +95,7 @@ public class LevelMenu extends Application {
 
     HBox hBox = new HBox();
     hBox.getChildren().addAll(menuBar, pb);
+    pb.setMinWidth(hBox.getMaxWidth());
     BorderPane borderLayout = new BorderPane();
     borderLayout.setTop(hBox);
     borderLayout.setCenter(presentation);
