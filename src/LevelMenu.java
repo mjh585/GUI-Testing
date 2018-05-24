@@ -4,7 +4,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.*;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,12 +12,18 @@ import java.util.ArrayList;
 import javafx.scene.layout.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import java.io.File;
 
 
 public class LevelMenu extends Application {
-  int levelNum, qNum, i, j;
+  int levelNum=1;
+  int qNum, i, j;
   Label presentation;
-  public LevelMenu() {}
+  double maxLevels = 5;
+
+
+  File styleSheet = new File("../resources/style.css");
+  ProgressBar pb = new ProgressBar(levelNum/maxLevels);
 
   public static void main(String[] args) {
     // LevelMenu();
@@ -87,12 +93,15 @@ public class LevelMenu extends Application {
 
 
 
-    VBox vBox = new VBox(menuBar);
+    HBox hBox = new HBox();
+    hBox.getChildren().addAll(menuBar, pb);
     BorderPane borderLayout = new BorderPane();
-    borderLayout.setTop(vBox);
+    borderLayout.setTop(hBox);
     borderLayout.setCenter(presentation);
 
     Scene scene = new Scene(borderLayout, 960, 600);
+    scene.getStylesheets().clear();
+    scene.getStylesheets().add("file:///" + styleSheet.getAbsolutePath().replace("\\","/"));
     primaryStage.setScene(scene);
     primaryStage.show();
   }
@@ -102,6 +111,7 @@ public class LevelMenu extends Application {
     this.qNum = (newQuestion + 1);
     this.presentation.setText("Level: " + Integer.toString(levelNum) + " Question: " + Integer.toString(qNum));
     System.out.println("Level: " + Integer.toString(levelNum) + " Question: " + Integer.toString(qNum));
+    this.pb.setProgress(this.levelNum/this.maxLevels);
   }
 
 
