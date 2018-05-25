@@ -67,19 +67,6 @@ public class LevelMenu extends Application {
                 setSlide(Integer.parseInt(menuIDArray[0]), Integer.parseInt(menuIDArray[1]));
               }
             }
-
-            // //System.out.println(event.toString());
-            // for (int k=0; k < levelItems.size(); k++) {
-            //   //System.out.println(levelItems.get(k));
-            // //  if(o == levelItems.get(k).getItems().questions.size()) {
-            //     for (int l=0; l < questions.size(); l++) {
-            //       if(o == questions.get(l)) {
-            //         System.out.println(questions.get(l).getId());
-            //         //setSlide(k, l);
-            //       }
-            //     }
-            //   //}
-            // }
           }
         });
       }
