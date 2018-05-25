@@ -3,6 +3,10 @@
                 -fx-accent: red;
                 -fx-background-color: transparent;
                 }
+                .progress-bar > .bar {
+                -fx-background-insets: 1 1 2 1;
+                -fx-padding: 0.20em;
+                }
                 .menu-bar {
                   -fx-background-color:red;
                   -fx-text-fill:red;
@@ -35,6 +39,9 @@
                 }
                 .slider:disabled, .slider:disabled > * {
                 -fx-opacity: 1.0 ;
+                }
+                .button:disabled, .button:disabled > * {
+                  -fx-opacity: 0;
                 }
                 .slider .track {
      /* -fx-background-color: red; */
