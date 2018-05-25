@@ -1,4 +1,5 @@
 /* 4Learning Progress Indicator */
+// To add to a layout, call the .getStackPane() method.
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
 import javafx.scene.layout.StackPane;
@@ -74,7 +75,7 @@ public class FLProgress {
     return this.pb;
   }
 
-  //Stack getter
+  //Stack getter - USE THIS TO ADD TO LAYOUT!
   public StackPane getStackPane() {
     return this.stack;
   }

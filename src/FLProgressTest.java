@@ -45,7 +45,7 @@ public class FLProgressTest extends Application {
     HBox hb = new HBox();
     hb.setSpacing(5);
     hb.setAlignment(Pos.CENTER);
-    hb.getChildren().addAll(nextBtn, prevBtn, progress.getStackPane());
+    hb.getChildren().addAll(nextBtn, prevBtn, progress.getStackPane()); //NOTE the getStackPane() method!
     scene.setRoot(hb);
 
     stage.setScene(scene);
