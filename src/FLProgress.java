@@ -60,7 +60,7 @@ public class FLProgress {
 
     this.pb.setProgress((level-1)/(this.totalLevels-1));
     this.slider.setValue(level/this.totalLevels);
-    System.out.println("Progress: "+((level/totalLevels)*100)+"%");
+    // System.out.println("Progress: "+((level/totalLevels)*100)+"%");
     this.levelNum = (float)level;
   }
 
