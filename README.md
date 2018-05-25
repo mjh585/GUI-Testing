@@ -14,3 +14,6 @@ Call the getStackPane() method to return the stack containing the slider and pro
 ```
 progressBar.getStackPane();
 ```
+
+### .CSS stylesheet
+Ensure the style.css file is stored at the location: ```../resources/style.css``` (in relation to the file that calls creates the FLProgress object.)
